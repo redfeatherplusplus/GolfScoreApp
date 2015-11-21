@@ -14,16 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/Business</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Downloads/GolfAppPrototype%20(2)/GolfAppPrototype/DefaultComponent/DefaultConfig/Business</locationURI>
-		</link>
-		<link>
-			<name>src/TechnicalServices</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Downloads/GolfAppPrototype%20(2)/GolfAppPrototype/DefaultComponent/DefaultConfig/TechnicalServices</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
