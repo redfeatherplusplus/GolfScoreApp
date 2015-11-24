@@ -1,10 +1,10 @@
 /*********************************************************************
-	Rhapsody	: 8.0.3
-	Login		: dxc122030
+	Rhapsody	: 8.1.3
+	Login		: Cheng
 	Component	: DefaultComponent
 	Configuration 	: DefaultConfig
 	Model Element	: Hole
-//!	Generated Date	: Fri, 20, Nov 2015 
+//!	Generated Date	: Mon, 23, Nov 2015 
 	File Path	: DefaultComponent/DefaultConfig/Business/Model/Hole.java
 *********************************************************************/
 
@@ -25,17 +25,17 @@ public class Hole {
     
     protected Shot currentShot;		//## attribute currentShot 
     
-    protected long duration;		//## attribute duration 
-    
-    protected long endTime;		//## attribute endTime 
-    
     protected int par;		//## attribute par 
-    
-    protected int score;		//## attribute score 
     
     protected int shotsTaken;		//## attribute shotsTaken 
     
+    protected int score;		//## attribute score 
+    
     protected long startTime;		//## attribute startTime 
+    
+    protected long endTime;		//## attribute endTime 
+    
+    protected long duration;		//## attribute duration 
     
     
     // Constructors
@@ -76,26 +76,6 @@ public class Hole {
     }
     
     //## auto_generated 
-    public long getDuration() {
-        return duration;
-    }
-    
-    //## auto_generated 
-    public void setDuration(long p_duration) {
-        duration = p_duration;
-    }
-    
-    //## auto_generated 
-    public long getEndTime() {
-        return endTime;
-    }
-    
-    //## auto_generated 
-    public void setEndTime(long p_endTime) {
-        endTime = p_endTime;
-    }
-    
-    //## auto_generated 
     public int getPar() {
         return par;
     }
@@ -103,16 +83,6 @@ public class Hole {
     //## auto_generated 
     public void setPar(int p_par) {
         par = p_par;
-    }
-    
-    //## auto_generated 
-    public int getScore() {
-        return score;
-    }
-    
-    //## auto_generated 
-    public void setScore(int p_score) {
-        score = p_score;
     }
     
     //## auto_generated 
@@ -126,6 +96,16 @@ public class Hole {
     }
     
     //## auto_generated 
+    public int getScore() {
+        return score;
+    }
+    
+    //## auto_generated 
+    public void setScore(int p_score) {
+        score = p_score;
+    }
+    
+    //## auto_generated 
     public long getStartTime() {
         return startTime;
     }
@@ -133,6 +113,26 @@ public class Hole {
     //## auto_generated 
     public void setStartTime(long p_startTime) {
         startTime = p_startTime;
+    }
+    
+    //## auto_generated 
+    public long getEndTime() {
+        return endTime;
+    }
+    
+    //## auto_generated 
+    public void setEndTime(long p_endTime) {
+        endTime = p_endTime;
+    }
+    
+    //## auto_generated 
+    public long getDuration() {
+        return duration;
+    }
+    
+    //## auto_generated 
+    public void setDuration(long p_duration) {
+        duration = p_duration;
     }
     
 }

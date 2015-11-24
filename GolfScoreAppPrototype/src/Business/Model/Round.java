@@ -1,17 +1,15 @@
 /*********************************************************************
-	Rhapsody	: 8.0.3
-	Login		: dxc122030
+	Rhapsody	: 8.1.3
+	Login		: Cheng
 	Component	: DefaultComponent
 	Configuration 	: DefaultConfig
 	Model Element	: Round
-//!	Generated Date	: Fri, 20, Nov 2015 
+//!	Generated Date	: Mon, 23, Nov 2015 
 	File Path	: DefaultComponent/DefaultConfig/Business/Model/Round.java
 *********************************************************************/
 
 package Business.Model;
 
-//## auto_generated
-import java.util.*;
 
 //----------------------------------------------------------------------------
 // Business/Model/Round.java                                                                  
@@ -23,21 +21,21 @@ import java.util.*;
 //## class Round 
 public class Round {
     
+    protected List<Hole> holes;		//## attribute holes 
+    
     protected Hole currentHole;		//## attribute currentHole 
     
-    protected double endTime;		//## attribute endTime 
-    
     protected double startTime;		//## attribute startTime 
+    
+    protected double endTime;		//## attribute endTime 
     
     protected double totalDuration;		//## attribute totalDuration 
     
     protected int totalPar;		//## attribute totalPar 
     
-    protected int totalScore;		//## attribute totalScore 
-    
     protected int totalShotsTaken;		//## attribute totalShotsTaken 
     
-    protected ArrayList<Hole> holes = new ArrayList<Hole>();		//## link holes 
+    protected int totalScore;		//## attribute totalScore 
     
     
     // Constructors
@@ -68,6 +66,16 @@ public class Round {
     }
     
     //## auto_generated 
+    public List<Hole> getHoles() {
+        return holes;
+    }
+    
+    //## auto_generated 
+    public void setHoles(List<Hole> p_holes) {
+        holes = p_holes;
+    }
+    
+    //## auto_generated 
     public Hole getCurrentHole() {
         return currentHole;
     }
@@ -78,16 +86,6 @@ public class Round {
     }
     
     //## auto_generated 
-    public double getEndTime() {
-        return endTime;
-    }
-    
-    //## auto_generated 
-    public void setEndTime(double p_endTime) {
-        endTime = p_endTime;
-    }
-    
-    //## auto_generated 
     public double getStartTime() {
         return startTime;
     }
@@ -95,6 +93,16 @@ public class Round {
     //## auto_generated 
     public void setStartTime(double p_startTime) {
         startTime = p_startTime;
+    }
+    
+    //## auto_generated 
+    public double getEndTime() {
+        return endTime;
+    }
+    
+    //## auto_generated 
+    public void setEndTime(double p_endTime) {
+        endTime = p_endTime;
     }
     
     //## auto_generated 
@@ -118,16 +126,6 @@ public class Round {
     }
     
     //## auto_generated 
-    public int getTotalScore() {
-        return totalScore;
-    }
-    
-    //## auto_generated 
-    public void setTotalScore(int p_totalScore) {
-        totalScore = p_totalScore;
-    }
-    
-    //## auto_generated 
     public int getTotalShotsTaken() {
         return totalShotsTaken;
     }
@@ -138,24 +136,13 @@ public class Round {
     }
     
     //## auto_generated 
-    public ListIterator<Hole> getHoles() {
-        ListIterator<Hole> iter = holes.listIterator();
-        return iter;
+    public int getTotalScore() {
+        return totalScore;
     }
     
     //## auto_generated 
-    public void addHoles(Hole p_Hole) {
-        holes.add(0, p_Hole);
-    }
-    
-    //## auto_generated 
-    public void removeHoles(Hole p_Hole) {
-        holes.remove(p_Hole);
-    }
-    
-    //## auto_generated 
-    public void clearHoles() {
-        holes.clear();
+    public void setTotalScore(int p_totalScore) {
+        totalScore = p_totalScore;
     }
     
 }
