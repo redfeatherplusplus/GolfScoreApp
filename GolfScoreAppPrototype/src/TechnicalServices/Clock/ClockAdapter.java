@@ -18,14 +18,30 @@ package TechnicalServices.Clock;
 //## package TechnicalServices::Clock 
 
 
-//## class ClockAdapter 
-public class ClockAdapter {
+/**
+ *Author: Karthikeyan Selvaraj 
+ *This class has a singleton Instance
+ *Use getInstance() to get the singleton Instance of the class
+ */
+public class ClockAdapter 
+{
     
+    private static ClockAdapter ClockInstance = null;
+	
+    // Constructors 
+    private ClockAdapter() 
+    {   }
     
-    // Constructors
-    
-    //## auto_generated 
-    public  ClockAdapter() {
+    /**
+     * Author: Karthikeyan Selvaraj
+     * @return singleton Instance of the Class
+     */    
+    public static ClockAdapter getInstance()
+    {
+    	if(ClockInstance==null)
+    	    ClockInstance = new ClockAdapter();
+    	
+    	return ClockInstance;
     }
     
     /**

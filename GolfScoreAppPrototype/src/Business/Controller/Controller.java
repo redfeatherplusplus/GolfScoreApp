@@ -13,6 +13,9 @@ package Business.Controller;
 //## attribute currentRound 
 import java.util.List;
 
+import TechnicalServices.Clock.ClockAdapter;
+import TechnicalServices.LocalStorage.LocalStorageAdapter;
+
 import Business.Model.Round;
 //## operation startRound(Course) 
 import Business.Model.Course;
@@ -31,11 +34,15 @@ public class Controller {
     
     protected Round currentRound;		//## attribute currentRound 
     
-    
+    private ClockAdapter clockInstance = null;
+    private LocalStorageAdapter storageAdapter =null;
     // Constructors
     
     //## auto_generated 
-    public  Controller() {
+    public  Controller() 
+    {
+    	clockInstance = ClockAdapter.getInstance();
+    	storageAdapter = new LocalStorageAdapter();
     }
     
     //## operation endHole() 
@@ -44,10 +51,17 @@ public class Controller {
         //#]
     }
     
-    //## operation endRound() 
-    public void endRound() {
-        //#[ operation endRound() 
-        //#]
+     /**
+      * Author: Karthikeyan Selvaraj
+      * UseCase: EndRound
+      * Function : Sets the endtime for the round and Calculates the total score for the round and save 
+      * it to the local storage as an XML string in the file named "RoundPlayer_<Timestamp>"
+      */
+    public void endRound() 
+    {
+    	currentRound.setEndTime(clockInstance.getTime());
+    	currentRound.calcScore();
+    	storageAdapter.saveRound(currentRound);
     }
     
     //## operation listCourses() 
@@ -75,12 +89,16 @@ public class Controller {
     }
     
     /**
-     * @param course
-    */
-    //## operation startRound(Course) 
-    public void startRound(final Course course) {
-        //#[ operation startRound(Course) 
-        //#]
+     * Author: Karthikeyan Selvaraj
+     * @param course : Course Information on which the round is played
+     * UseCase : StartRound
+     * Function : Starts the round instance with the course selected
+     */
+    public void startRound(final Course course) 
+    {
+       Round round = new Round(course);
+       currentRound = round;
+       round.setStartTime(clockInstance.getTime());
     }
     
     //## auto_generated 

@@ -40,17 +40,36 @@ public class Round {
     protected int totalScore;		//## attribute totalScore 
     
     
-    // Constructors
-    
-    //## auto_generated 
-    public  Round() {
+    /**
+     * Author: Karthikeyan Selvaraj
+     * @param course : COurse on which the round is played on
+     * Function : Initializes the Hole list in the round to the holes in the course to 
+     * initialize all the par values and other holes information to the holes in the round 
+     */
+    public  Round(Course course) 
+    {
+    	totalScore =0;
+    	totalPar =0;
+    	totalShotsTaken =0;
+    	for(Hole hole : course.holes)
+    	{
+    		this.holes.add(hole);
+    	}
     }
     
-    //## operation calcScore() 
-    public int calcScore() {
-        //#[ operation calcScore() 
-        //#]
-    	return 0;
+    /**
+     * Author: Karthikeyan Selvaraj
+     * @return totalScore Calculated
+     * Function: Total Score = Hole_Par * Hole_Score for each hole. Calculates the value and stores it in the instance.
+     */
+    public void calcScore() 
+    {
+    	for(Hole hole : holes)
+    	{
+    		totalScore += (hole.par * hole.score);
+    		totalPar += hole.par;
+    		totalShotsTaken+= hole.shotsTaken;
+    	}
     }
     
     //## operation endCurrentHole() 
