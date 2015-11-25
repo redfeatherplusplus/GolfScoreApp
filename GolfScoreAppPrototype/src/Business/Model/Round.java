@@ -10,6 +10,8 @@
 
 package Business.Model;
 
+import java.util.List;
+
 
 //----------------------------------------------------------------------------
 // Business/Model/Round.java                                                                  
@@ -48,6 +50,7 @@ public class Round {
     public int calcScore() {
         //#[ operation calcScore() 
         //#]
+    	return 0;
     }
     
     //## operation endCurrentHole() 
@@ -63,6 +66,7 @@ public class Round {
     public Hole startNewHole(long time) {
         //#[ operation startNewHole(long) 
         //#]
+    	return null;
     }
     
     //## auto_generated 

@@ -48,6 +48,7 @@ public class Hole {
     public int calcScore() {
         //#[ operation calcScore() 
         //#]
+    	return(0);
     }
     
     //## operation createNewShot() 

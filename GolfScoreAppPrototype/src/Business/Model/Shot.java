@@ -51,6 +51,7 @@ public class Shot {
     public double calculateDistance() {
         //#[ operation calculateDistance() 
         //#]
+    	return 0.0;
     }
     
     //## auto_generated 

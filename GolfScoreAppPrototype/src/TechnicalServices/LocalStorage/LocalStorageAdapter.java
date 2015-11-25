@@ -36,6 +36,7 @@ public class LocalStorageAdapter {
     public String getCourses() {
         //#[ operation getCourses() 
         //#]
+    	return null;
     }
     
     /**

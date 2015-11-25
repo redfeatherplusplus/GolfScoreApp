@@ -10,6 +10,8 @@
 
 package TechnicalServices.GPS;
 
+import Business.Location;
+
 
 //----------------------------------------------------------------------------
 // TechnicalServices/GPS/RandomLocationGenerator.java                                                                  
@@ -29,9 +31,10 @@ public class RandomLocationGenerator implements GPSInterface {
     }
     
     //## operation getLocation() 
-    public void getLocation() {
+    public Location getLocation() {
         //#[ operation getLocation() 
         //#]
+    	return null;
     }
     
 }

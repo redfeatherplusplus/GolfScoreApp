@@ -10,6 +10,8 @@
 
 package Business.Model;
 
+import java.util.List;
+
 
 //----------------------------------------------------------------------------
 // Business/Model/Course.java                                                                  
@@ -34,7 +36,7 @@ public class Course {
     
     //## auto_generated 
     public List<Hole> getHoles() {
-        return holes;
+        return null;
     }
     
     //## auto_generated 

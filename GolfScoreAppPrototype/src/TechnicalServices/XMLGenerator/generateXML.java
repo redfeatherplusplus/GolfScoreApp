@@ -15,6 +15,7 @@ import Business.Model.Round;
 //## operation generateXML(Course) 
 import Business.Model.Course;
 
+
 //----------------------------------------------------------------------------
 // TechnicalServices/XMLGenerator/generateXML.java                                                                  
 //----------------------------------------------------------------------------
@@ -39,6 +40,7 @@ public class generateXML {
     public String generateXML(final Round round) {
         //#[ operation generateXML(Round) 
         //#]
+    	return null;
     }
     
     /**
@@ -48,6 +50,7 @@ public class generateXML {
     public String generateXML(final Course course) {
         //#[ operation generateXML(Course) 
         //#]
+    	return null;
     }
     
 }

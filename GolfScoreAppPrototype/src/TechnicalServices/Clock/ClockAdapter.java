@@ -28,10 +28,14 @@ public class ClockAdapter {
     public  ClockAdapter() {
     }
     
-    //## operation getTime() 
+    /**
+     * Author: Karthikeyan Selvaraj
+     * Function: Return current Time in the system in MilliSeconds.
+     * @return Current System Time in Long Format
+     */
     public long getTime() {
-        //#[ operation getTime() 
-        //#]
+
+    	return System.currentTimeMillis();
     }
     
 }
