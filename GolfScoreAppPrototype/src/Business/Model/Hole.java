@@ -10,6 +10,8 @@
 
 package Business.Model;
 
+import java.util.List;
+
 //## operation endShot(Location) 
 import Business.Location;
 
@@ -37,6 +39,7 @@ public class Hole {
     
     protected long duration;		//## attribute duration 
     
+    protected List<Shot> shots;
     
     // Constructors
     
@@ -136,6 +139,10 @@ public class Hole {
         duration = p_duration;
     }
     
+    public List<Shot> getShotList()
+    {
+    	return shots;
+    }
 }
 /*********************************************************************
 	File Path	: DefaultComponent/DefaultConfig/Business/Model/Hole.java
