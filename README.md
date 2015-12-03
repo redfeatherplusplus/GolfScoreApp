@@ -1,8 +1,8 @@
 # OOSE Group project
 
 TODO:
-> Add transitions to UI. Examples of how to add a transition to the UI can be found under the "Home" Class. 
-In short, call: UI.getInstance().show(PanelNames.PANEL_NAME);. UI was designed with WindowBuilderPro:
+> Add missing JPanel transitions to UI. Examples of how to add a transition to the UI can be found under the "Home" 
+Class. In short, call: UI.getInstance().show(PanelNames.PANEL_NAME);. UI was designed with WindowBuilderPro:
 http://www.eclipse.org/windowbuilder/download.php. Developing on the UI should be possible without WindowBuilder 
 though. Use setVisible(true/false) to swap inbetween sub-panels if needed (Only used in EndShot and ViewHistory).
 
