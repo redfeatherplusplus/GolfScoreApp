@@ -39,6 +39,7 @@ public class UI {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	private UI() {
 		initialize();
@@ -46,6 +47,7 @@ public class UI {
 	
 	/**
 	 * Launch the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
