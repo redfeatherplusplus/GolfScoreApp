@@ -34,15 +34,25 @@ public class Controller {
     
     protected Round currentRound;		//## attribute currentRound 
     
+    private static final Controller INSTANCE = new Controller();
     private ClockAdapter clockInstance = null;
     private LocalStorageAdapter storageAdapter =null;
     // Constructors
     
     //## auto_generated 
-    public  Controller() 
+    private Controller() 
     {
     	clockInstance = ClockAdapter.getInstance();
     	storageAdapter = new LocalStorageAdapter();
+    }
+    
+    /**
+     * Author: Daren Cheng
+     * Function : Returns controller instance
+     */
+    public static Controller getInstance() 
+    {
+    	return(INSTANCE);
     }
     
     //## operation endHole() 
