@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import Business.Controller.Controller;
+import UI.PanelNames;
 import UI.UI;
 
 public class ViewHistory extends JPanel {

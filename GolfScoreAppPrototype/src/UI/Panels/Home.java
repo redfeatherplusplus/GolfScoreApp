@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
 import Business.Controller.Controller;
+import UI.PanelNames;
 import UI.UI;
 
 public class Home extends JPanel {
@@ -25,7 +26,7 @@ public class Home extends JPanel {
 		btnCreateCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//create course button pressed
-				UI.getInstance().show("Create Course");
+				UI.getInstance().show(PanelNames.CREATE_COURSE);
 			}
 		});
 		
@@ -33,7 +34,7 @@ public class Home extends JPanel {
 		btnStartRound.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//start round button pressed
-				UI.getInstance().show("Start Round");
+				UI.getInstance().show(PanelNames.START_ROUND);
 			}
 		});
 		
@@ -41,7 +42,7 @@ public class Home extends JPanel {
 		btnUploadData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//upload data button pressed
-				UI.getInstance().show("Upload Data");
+				UI.getInstance().show(PanelNames.UPLOAD_DATA);
 			}
 		});
 		
@@ -49,7 +50,7 @@ public class Home extends JPanel {
 		btnViewHistory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//view history button pressed
-				UI.getInstance().show("View History");
+				UI.getInstance().show(PanelNames.VIEW_HISTORY);
 			}
 		});
 		

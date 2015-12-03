@@ -87,40 +87,39 @@ public class UI {
 		viewHistory.setVisible(false);
 		
 		//set desired panel to be visible
-		if(panelName.equals("Home")) {
+		if(panelName.equals(PanelNames.HOME)) {
 			home.setVisible(true);
 		}
-		else if (panelName.equals("Create Course")) {
+		else if (panelName.equals(PanelNames.CREATE_COURSE)) {
 			createCourse.setVisible(true);
 		}
-		else if (panelName.equals("Start Round")) {
+		else if (panelName.equals(PanelNames.START_ROUND)) {
 			startRound.setVisible(true);
 		}
-		else if (panelName.equals("Start Hole")) {
+		else if (panelName.equals(PanelNames.START_HOLE)) {
 			startHole.setVisible(true);
 		}
-		else if (panelName.equals("Start Shot")) {
+		else if (panelName.equals(PanelNames.START_SHOT)) {
 			startShot.setVisible(true);
 		}
-		else if (panelName.equals("End Round")) {
+		else if (panelName.equals(PanelNames.END_ROUND)) {
 			endRound.setVisible(true);
 		}
-		else if (panelName.equals("End Hole")) {
+		else if (panelName.equals(PanelNames.END_HOLE)) {
 			endHole.setVisible(true);
 		}
-		else if (panelName.equals("End Shot")) {
+		else if (panelName.equals(PanelNames.END_SHOT)) {
 			endShot.setVisible(true);
 		}
-		else if (panelName.equals("Upload Data")) {
+		else if (panelName.equals(PanelNames.UPLOAD_DATA)) {
 			uploadData.setVisible(true);
 		}
-		else if (panelName.equals("View History")) {
+		else if (panelName.equals(PanelNames.VIEW_HISTORY)) {
 			viewHistory.setVisible(true);
 		}
 		else {
-			//invalid panel passed, show home panel instead
+			//invalid panel passed, print error indicating so and show nothing
 			System.out.println("Error, Invalid Panel Arguement Passed. Please Reset UI.");
-			home.setVisible(true);
 		}
 	}
 

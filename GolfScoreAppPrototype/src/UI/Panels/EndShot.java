@@ -17,6 +17,7 @@ import java.awt.CardLayout;
 import javax.swing.JTextArea;
 
 import Business.Controller.Controller;
+import UI.PanelNames;
 import UI.UI;
 
 public class EndShot extends JPanel {
