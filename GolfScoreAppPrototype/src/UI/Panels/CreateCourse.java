@@ -102,6 +102,8 @@ public class CreateCourse extends JPanel {
 		btnFinalizeCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//finalize course button pressed
+				//edit controller
+				//UI.getInstance().show(PanelNames.HOME);
 			}
 		});
 		

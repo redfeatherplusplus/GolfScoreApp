@@ -10,6 +10,8 @@
 
 package Business.Controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 //## attribute currentRound 
 import java.util.*;
 import Business.Model.*;
@@ -200,9 +202,59 @@ public class Controller {
         return currentRound;
     }
     
-    //## auto_generated 
+    /**
+     * 
+     */
     public void setCurrentRound(Round p_currentRound) {
         currentRound = p_currentRound;
+    }
+    
+    /**
+     * Author: Karthikeyan Selvaraj
+     * @return List of Files in the RoundInformation Directory
+     * Function: All the Course Information is saved in a directory "Round Information" This
+     * Function return all the files in the directory
+     */
+    public List<String> GetRoundPlayed()
+    {
+    	List<String> roundsPlayed = new ArrayList<String>();
+    	File[] files = new File("RoundInformation").listFiles();
+    	
+    	for (File file : files) 
+    	{
+    	    if (file.isFile()) 
+    	    {
+    	    	roundsPlayed.add(file.getName());
+    	    }
+    	}
+    	return roundsPlayed;
+    }
+    
+    /**
+     *  Author: Karthikeyan Selvaraj
+     * @param fileName fileName of the round for which you have to get the XML
+     * @return returns the XML Information read from the file
+     * Function: Reads the input file and return the entire content.
+     */
+    public String GetRoundInformation(String fileName)
+    {
+    	String XmlInfo = "";
+    	File file =new File(fileName);
+        Scanner in = null;
+        try 
+        {
+            in = new Scanner(file);
+            while(in.hasNext())
+            {
+                XmlInfo+=in.nextLine();
+            }
+        } 
+        catch (FileNotFoundException e) 
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    	return XmlInfo;
     }
     
 }
