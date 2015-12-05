@@ -11,6 +11,7 @@
 package Business.Model;
 
 import java.util.List;
+import Business.Model.*;
 
 //## operation endShot(Location) 
 import Business.Location;
@@ -54,19 +55,41 @@ public class Hole {
     	return(0);
     }
     
-    //## operation createNewShot() 
-    public void createNewShot() {
-        //#[ operation createNewShot() 
-        //#]
+    /**
+     * Author: Jonathan Ricklis
+     * UseCase: StartShot
+     * Function: Creates a new shot, adds it to the list of shots, and return the new shot.
+     */
+    public Shot createNewShot() {
+        currentShot = new Shot();
+        return currentShot;
     }
     
     /**
+     * Athor: Jonathan Ricklis
+     * UseCase: StartShot
+     * Function: sets start location of currentShot on hole.
+     * @param startLocation
+     */
+    public void startShot(Location startLocation){
+    	if (currentShot != null){
+    		currentShot.setStartLocation(startLocation);
+    	}
+    }
+    /**
+     * Author: Jonathan Ricklis
+     * UseCase: EndShot
+     * Function: sets end location of currentShot, adds the shot to shots list, and then sets currentShot = null
      * @param location
     */
     //## operation endShot(Location) 
     public void endShot(final Location location) {
-        //#[ operation endShot(Location) 
-        //#]
+        if (currentShot != null){
+        	currentShot.setEndLocation(location);
+        	shots.add(currentShot);
+        	currentShot = null;
+        }
+        
     }
     
     //## auto_generated 
@@ -74,10 +97,10 @@ public class Hole {
         return currentShot;
     }
     
-    //## auto_generated 
-    public void setCurrentShot(Shot p_currentShot) {
-        currentShot = p_currentShot;
-    }
+//    //## auto_generated 
+//    public void setCurrentShot(Shot p_currentShot) {
+//        currentShot = p_currentShot;
+//    }
     
     //## auto_generated 
     public int getPar() {
@@ -91,13 +114,13 @@ public class Hole {
     
     //## auto_generated 
     public int getShotsTaken() {
-        return shotsTaken;
+        return shots.size();
     }
     
-    //## auto_generated 
-    public void setShotsTaken(int p_shotsTaken) {
-        shotsTaken = p_shotsTaken;
-    }
+//    //## auto_generated 
+//    public void setShotsTaken(int p_shotsTaken) {
+//        shotsTaken = p_shotsTaken;
+//    }
     
     //## auto_generated 
     public int getScore() {

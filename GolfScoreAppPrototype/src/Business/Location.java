@@ -21,9 +21,9 @@ package Business;
 //## class Location 
 public class Location {
     
-    protected long latitude;		//## attribute latitude 
+    protected double latitude;		//## attribute latitude 
     
-    protected long longitude;		//## attribute longitude 
+    protected double longitude;		//## attribute longitude 
     
     
     // Constructors
@@ -33,22 +33,22 @@ public class Location {
     }
     
     //## auto_generated 
-    public long getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
     
     //## auto_generated 
-    public void setLatitude(long p_latitude) {
+    public void setLatitude(double p_latitude) {
         latitude = p_latitude;
     }
     
     //## auto_generated 
-    public long getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
     
     //## auto_generated 
-    public void setLongitude(long p_longitude) {
+    public void setLongitude(double p_longitude) {
         longitude = p_longitude;
     }
     

@@ -11,6 +11,7 @@
 package TechnicalServices.GPS;
 
 import Business.Location;
+import java.util.Random;
 
 
 //----------------------------------------------------------------------------
@@ -22,19 +23,32 @@ import Business.Location;
 
 //## class RandomLocationGenerator 
 public class RandomLocationGenerator implements GPSInterface {
-    
-    
+        
     // Constructors
     
     //## auto_generated 
     public  RandomLocationGenerator() {
     }
-    
-    //## operation getLocation() 
+
+    /**
+     * Author: Jonathan Ricklis
+     * Function: Returns a Location object with random values for 
+     * longitude (-180 to +180) and latitude (-90 to +90) 
+     */
     public Location getLocation() {
-        //#[ operation getLocation() 
-        //#]
-    	return null;
+        Location location = new Location();
+        Random r = new Random();
+        
+        double longitude = (double)r.nextInt(181) + ((double)r.nextInt(100000)) / 1000000;
+        double latitude = (double)r.nextInt(91) + ((double)r.nextInt(100000)) / 1000000;
+        
+        longitude = r.nextInt(2) == 0 ? longitude : - longitude;
+        latitude = r.nextInt(2) == 0 ? latitude : - latitude;
+        
+        location.setLongitude(longitude);
+        location.setLatitude(latitude);
+        
+        return location;
     }
     
 }

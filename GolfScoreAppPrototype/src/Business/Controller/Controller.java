@@ -11,14 +11,15 @@
 package Business.Controller;
 
 //## attribute currentRound 
-import java.util.List;
+import java.util.*;
+import Business.Model.*;
+import Business.Location;
 
 import TechnicalServices.Clock.ClockAdapter;
 import TechnicalServices.LocalStorage.LocalStorageAdapter;
+import TechnicalServices.GPS.*;
 
-import Business.Model.Round;
 //## operation startRound(Course) 
-import Business.Model.Course;
 
 //----------------------------------------------------------------------------
 // Business/Controller/Controller.java                                                                  
@@ -37,6 +38,10 @@ public class Controller {
     private static final Controller INSTANCE = new Controller();
     private ClockAdapter clockInstance = null;
     private LocalStorageAdapter storageAdapter =null;
+    private GPSInterface gps = null;
+    
+    private Shot currentShot = null;
+    private Hole currentHole = null;
     // Constructors
     
     //## auto_generated 
@@ -44,6 +49,24 @@ public class Controller {
     {
     	clockInstance = ClockAdapter.getInstance();
     	storageAdapter = new LocalStorageAdapter();
+    	gps = new RandomLocationGenerator();
+    	
+    	clubList = new ArrayList<String>();
+    	clubList.add("Driver");
+    	clubList.add("3-Wood");
+    	clubList.add("3-Hybrid");
+    	clubList.add("4-Hybrid");
+    	clubList.add("4-Iron");
+    	clubList.add("5-Iron");
+    	clubList.add("6-Iron");
+    	clubList.add("7-Iron");
+    	clubList.add("8-Iron");
+    	clubList.add("9-Iron");
+    	clubList.add("52 degree Wedge");
+    	clubList.add("60 degree Wedge");
+    	clubList.add("Pitching Wedge");
+    	clubList.add("Putter");
+
     }
     
     /**
@@ -80,17 +103,68 @@ public class Controller {
         //#]
     }
     
-    //## operation newShot() 
+    /**
+     * Author: Jonathan Ricklis
+     * UseCase: StartShot
+     * Function: Creates a new shot on the current hole.
+     */
     public void newShot() {
-        //#[ operation newShot() 
-        //#]
+        currentHole = currentRound.getCurrentHole();
+        currentShot = currentHole.createNewShot();
+        showClubList();
+    }
+    /**
+     * Author: Jonathan Ricklis
+     * UseCase: StartShot
+     * Function: Display clubList in UI
+     */
+    private void showClubList(){
+    	// TODO: Tell UI to display a clubs list
     }
     
-    //## operation selectClub() 
-    public void selectClub() {
-        //#[ operation selectClub() 
-        //#]
+    /**
+     * Author: Jonathan Ricklis
+     * UseCase: StartShot
+     * Function: Sets the club for the current shot.
+     */
+    public void selectClub(String club) {
+        if (currentShot != null){
+        	currentShot.setClub(club);
+        }
+        showReadyToStartShot();
     }
+    /**
+     * Author: Jonathan Ricklis
+     * UseCase: StartShot
+     * Function: Display ready to start shot UI
+     */
+    private void showReadyToStartShot(){
+    	// TODO: Tell UI to display ready to start shot
+    }
+    /**
+     * Author: Jonathan Ricklis
+     * UseCase: StartShot
+     * Function: Call start shot on current hole with current location
+     */
+    public void startShot(){
+    	if (currentHole != null){
+    		Location currentLocation = gps.getLocation();
+    		currentHole.startShot(currentLocation);
+    	}
+    }
+    
+    /**
+     * Author: Jonathan Ricklis
+     * UseCase: EndShot
+     * Function: 
+     */
+    public void endShot(){
+    	if (currentHole != null){
+    		Location currentLocation = gps.getLocation();
+    		currentHole.endShot(currentLocation);
+    	}
+    }
+    
     
     //## operation startHole() 
     public void startHole() {
@@ -116,10 +190,10 @@ public class Controller {
         return clubList;
     }
     
-    //## auto_generated 
-    public void setClubList(List<String> p_clubList) {
-        clubList = p_clubList;
-    }
+//    //## auto_generated 
+//    public void setClubList(List<String> p_clubList) {
+//        clubList = p_clubList;
+//    }
     
     //## auto_generated 
     public Round getCurrentRound() {
