@@ -26,18 +26,31 @@ public class ViewHistory extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	private JList courseList = new JList(Controller.getInstance().GetRoundPlayed().toArray());
+	
 	public ViewHistory() {
 		setLayout(new CardLayout(0, 0));
 		
 		JPanel ViewCourses = new JPanel();
 		add(ViewCourses, "name_31776851274492");
 		
-		JList courseList = new JList();
+		JPanel ViewCourse = new JPanel();
+		add(ViewCourse, "name_31781453234841");
+		
+		JTextArea courseInfoArea = new JTextArea();
 		
 		JButton btnPickCourse = new JButton("Pick Course");
 		btnPickCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//pick course button pressed
+				
+				//prepare ViewCourse for Viewing
+				courseInfoArea.setText(Controller.getInstance().GetRoundInformation(
+						(String) courseList.getSelectedValue()));
+				
+				//change panel displayed
+				ViewCourses.setVisible(false);
+				ViewCourse.setVisible(true);
 			}
 		});
 		
@@ -71,19 +84,16 @@ public class ViewHistory extends JPanel {
 		);
 		ViewCourses.setLayout(gl_ViewCourses);
 		
-		JPanel ViewCourse = new JPanel();
-		add(ViewCourse, "name_31781453234841");
-		
 		JButton btnDoneViewing = new JButton("Done Viewing");
 		btnDoneViewing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//done viewing button pressed
+				UI.getInstance().show(PanelNames.HOME);
 			}
 		});
 		
 		JLabel lblCourseInformation = new JLabel("Course Information:");
 		
-		JTextArea courseInfoArea = new JTextArea();
 		GroupLayout gl_ViewCourse = new GroupLayout(ViewCourse);
 		gl_ViewCourse.setHorizontalGroup(
 			gl_ViewCourse.createParallelGroup(Alignment.LEADING)
@@ -114,4 +124,10 @@ public class ViewHistory extends JPanel {
 		ViewCourse.setLayout(gl_ViewCourse);
 
 	}
+	
+	public void refresh() {
+		courseList = new JList(Controller.getInstance().GetRoundPlayed().toArray());
+	}
 }
+
+	
