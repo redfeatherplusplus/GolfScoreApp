@@ -28,25 +28,20 @@ import TechnicalServices.GPS.*;
 //----------------------------------------------------------------------------
 
 //## package Business::Controller 
-
-
-//## class Controller 
-public class Controller {
+ 
+public class Controller 
+{
     
-    protected List<String> clubList;		//## attribute clubList 
-    
-    protected Round currentRound;		//## attribute currentRound 
-    
+    protected List<String> clubList;		//attribute clubList 
+    protected Round currentRound;		//attribute currentRound 
     private static final Controller INSTANCE = new Controller();
     private ClockAdapter clockInstance = null;
     private LocalStorageAdapter storageAdapter =null;
-    private GPSInterface gps = null;
-    
+    private GPSInterface gps = null;    
     private Shot currentShot = null;
     private Hole currentHole = null;
-    // Constructors
     
-    //## auto_generated 
+    
     private Controller() 
     {
     	clockInstance = ClockAdapter.getInstance();
@@ -99,10 +94,13 @@ public class Controller {
     	storageAdapter.saveRound(currentRound);
     }
     
-    //## operation listCourses() 
-    public void listCourses() {
-        //#[ operation listCourses() 
-        //#]
+    /**
+     * 
+     * @return
+     */
+    public List<String> listCourses() 
+    {
+    	return null;
     }
     
     /**
@@ -168,10 +166,13 @@ public class Controller {
     }
     
     
-    //## operation startHole() 
-    public void startHole() {
-        //#[ operation startHole() 
-        //#]
+    /**
+     *  
+     */
+    public void startHole() 
+    {
+       currentRound.startNewHole(clockInstance.getTime());
+    	
     }
     
     /**
@@ -219,13 +220,15 @@ public class Controller {
     {
     	List<String> roundsPlayed = new ArrayList<String>();
     	File[] files = new File("RoundInformation").listFiles();
-    	
-    	for (File file : files) 
+    	if(files!=null)
     	{
-    	    if (file.isFile()) 
-    	    {
-    	    	roundsPlayed.add(file.getName());
-    	    }
+	    	for (File file : files) 
+	    	{
+	    	    if (file.isFile()) 
+	    	    {
+	    	    	roundsPlayed.add(file.getName());
+	    	    }
+	    	}
     	}
     	return roundsPlayed;
     }

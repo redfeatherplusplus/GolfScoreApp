@@ -79,13 +79,14 @@ public class Round {
     }
     
     /**
-     * @param time
-    */
-    //## operation startNewHole(long) 
-    public Hole startNewHole(long time) {
-        //#[ operation startNewHole(long) 
-        //#]
-    	return null;
+     * Authour : Karthikeyan Selvaraj
+     * @param time current time to set the start time
+     * @return current hole which the round is working on.
+     */
+    public Hole startNewHole(long time) 
+    {
+    	currentHole.setStartTime(time);
+    	return currentHole;
     }
     
     //## auto_generated 

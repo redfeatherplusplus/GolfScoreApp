@@ -28,7 +28,8 @@ public class ViewHistory extends JPanel {
 	 */
 	private JList courseList = new JList(Controller.getInstance().GetRoundPlayed().toArray());
 	
-	public ViewHistory() {
+	public ViewHistory() 
+	{
 		setLayout(new CardLayout(0, 0));
 		
 		JPanel ViewCourses = new JPanel();
@@ -45,12 +46,12 @@ public class ViewHistory extends JPanel {
 				//pick course button pressed
 				
 				//prepare ViewCourse for Viewing
-				courseInfoArea.setText(Controller.getInstance().GetRoundInformation(
-						(String) courseList.getSelectedValue()));
+				//courseInfoArea.setText(Controller.getInstance().GetRoundInformation(
+					//	(String) courseList.getSelectedValue()));
 				
 				//change panel displayed
-				ViewCourses.setVisible(false);
-				ViewCourse.setVisible(true);
+				//ViewCourses.setVisible(false);
+				//ViewCourse.setVisible(true);
 			}
 		});
 		
