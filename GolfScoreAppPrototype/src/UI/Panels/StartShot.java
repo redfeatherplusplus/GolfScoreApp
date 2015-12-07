@@ -1,11 +1,13 @@
 package UI.Panels;
 
 import javax.swing.JPanel;
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 
@@ -18,10 +20,13 @@ import java.awt.event.ActionEvent;
 
 public class StartShot extends JPanel {
 	
+	private JList clubList;
+	
 	/**
 	 * Create the panel.
 	 */
 	public StartShot() {
+		Controller controller = Controller.getInstance();
 		
 		JLabel lblWhenReady = new JLabel("When Ready:");
 		
@@ -29,10 +34,27 @@ public class StartShot extends JPanel {
 		btnStartShot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//start shot button pressed
+				
+				controller.newShot();
+				int selected = clubList.getSelectedIndex();
+				if (selected >= 0){
+					String selectedClub = (String)clubList.getModel().getElementAt(selected);
+					controller.selectClub(selectedClub);
+					controller.startShot();
+					
+					UI.getInstance().show(PanelNames.END_SHOT);
+					clubList.clearSelection();
+				}
 			}
 		});
 		
-		JList clubList = new JList();
+		//Setup Club List picker
+		clubList = new JList();
+		DefaultListModel clubListModel = new DefaultListModel<String>();
+		for (String club : controller.getClubList()){
+			clubListModel.addElement(club);
+		}
+		clubList.setModel(clubListModel);
 		
 		JLabel lblPleaseChooseA = new JLabel("Please choose a club:");
 		GroupLayout groupLayout = new GroupLayout(this);

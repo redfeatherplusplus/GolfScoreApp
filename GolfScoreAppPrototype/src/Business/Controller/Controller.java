@@ -113,17 +113,7 @@ public class Controller {
     public void newShot() {
         currentHole = currentRound.getCurrentHole();
         currentShot = currentHole.createNewShot();
-        showClubList();
     }
-    /**
-     * Author: Jonathan Ricklis
-     * UseCase: StartShot
-     * Function: Display clubList in UI
-     */
-    private void showClubList(){
-    	// TODO: Tell UI to display a clubs list
-    }
-    
     /**
      * Author: Jonathan Ricklis
      * UseCase: StartShot
@@ -133,15 +123,6 @@ public class Controller {
         if (currentShot != null){
         	currentShot.setClub(club);
         }
-        showReadyToStartShot();
-    }
-    /**
-     * Author: Jonathan Ricklis
-     * UseCase: StartShot
-     * Function: Display ready to start shot UI
-     */
-    private void showReadyToStartShot(){
-    	// TODO: Tell UI to display ready to start shot
     }
     /**
      * Author: Jonathan Ricklis
@@ -149,10 +130,10 @@ public class Controller {
      * Function: Call start shot on current hole with current location
      */
     public void startShot(){
-    	if (currentHole != null){
+    	//if (currentHole != null){
     		Location currentLocation = gps.getLocation();
     		currentHole.startShot(currentLocation);
-    	}
+    	//}
     }
     
     /**
@@ -160,11 +141,12 @@ public class Controller {
      * UseCase: EndShot
      * Function: 
      */
-    public void endShot(){
-    	if (currentHole != null){
+    public String endShot(){
+//    	if (currentHole != null){
     		Location currentLocation = gps.getLocation();
-    		currentHole.endShot(currentLocation);
-    	}
+    		return currentHole.endShot(currentLocation);
+//    	}
+//    	return null;
     }
     
     

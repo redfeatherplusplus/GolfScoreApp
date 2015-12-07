@@ -10,6 +10,7 @@
 
 package Business.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 import Business.Model.*;
 
@@ -46,6 +47,7 @@ public class Hole {
     
     //## auto_generated 
     public  Hole() {
+    	shots = new ArrayList<Shot>();
     }
     
     //## operation calcScore() 
@@ -83,13 +85,24 @@ public class Hole {
      * @param location
     */
     //## operation endShot(Location) 
-    public void endShot(final Location location) {
-        if (currentShot != null){
+    public String endShot(final Location location) {
+    	System.out.println("in end shot: " + currentShot);
+    	if (currentShot != null){
         	currentShot.setEndLocation(location);
         	shots.add(currentShot);
+        	
+        	String shotInfo = 	"Shot " + this.getShotsTaken() + "\n" + 
+        						"Club: " + currentShot.getClub() + "\n" +
+        						"Start Location: (" + currentShot.getStartLocation().getLatitude() + ", " +
+        											  currentShot.getStartLocation().getLongitude() + ")\n" +
+        						"End Location: (" + currentShot.getEndLocation().getLatitude() + ", " +
+        											  currentShot.getEndLocation().getLongitude() + ")\n" +
+        						"Distance: " + currentShot.getDistance() + "m";
+        	
         	currentShot = null;
+        	return shotInfo;
         }
-        
+        return null;
     }
     
     //## auto_generated 

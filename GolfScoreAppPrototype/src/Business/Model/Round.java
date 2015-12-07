@@ -10,7 +10,7 @@
 
 package Business.Model;
 
-import java.util.List;
+import java.util.*;
 
 
 //----------------------------------------------------------------------------
@@ -51,6 +51,7 @@ public class Round {
     	totalScore =0;
     	totalPar =0;
     	totalShotsTaken =0;
+    	holes = new ArrayList<Hole>();
     	for(Hole hole : course.holes)
     	{
     		this.holes.add(hole);
@@ -85,7 +86,8 @@ public class Round {
     public Hole startNewHole(long time) {
         //#[ operation startNewHole(long) 
         //#]
-    	return null;
+    	currentHole = holes.get(0);
+    	return currentHole; // null
     }
     
     //## auto_generated 

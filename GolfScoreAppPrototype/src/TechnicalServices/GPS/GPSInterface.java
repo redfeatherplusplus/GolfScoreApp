@@ -23,7 +23,6 @@ import Business.Location;
 //## class GPSInterface 
 public interface GPSInterface {
     
-    
     //## operation getLocation() 
     Location getLocation();
     
