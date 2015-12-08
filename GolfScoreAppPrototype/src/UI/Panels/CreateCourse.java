@@ -9,6 +9,8 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -24,79 +26,14 @@ public class CreateCourse extends JPanel {
 	 * Create the panel.
 	 */
 	public CreateCourse() {
-		
-		JComboBox hole0 = new JComboBox();
-		hole0.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole0.setSelectedIndex(1);
-		
-		JComboBox hole1 = new JComboBox();
-		hole1.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole1.setSelectedIndex(1);
-		
-		JComboBox hole2 = new JComboBox();
-		hole2.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole2.setSelectedIndex(1);
-		
-		JComboBox hole3 = new JComboBox();
-		hole3.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole3.setSelectedIndex(1);
-		
-		JComboBox hole4 = new JComboBox();
-		hole4.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole4.setSelectedIndex(1);
-		
-		JComboBox hole5 = new JComboBox();
-		hole5.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole5.setSelectedIndex(1);
-		
-		JComboBox hole6 = new JComboBox();
-		hole6.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole6.setSelectedIndex(1);
-		
-		JComboBox hole7 = new JComboBox();
-		hole7.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole7.setSelectedIndex(1);
-		
-		JComboBox hole8 = new JComboBox();
-		hole8.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole8.setSelectedIndex(1);
-		
-		JComboBox hole9 = new JComboBox();
-		hole9.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole9.setSelectedIndex(1);
-		
-		JComboBox hole10 = new JComboBox();
-		hole10.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole10.setSelectedIndex(1);
-		
-		JComboBox hole11 = new JComboBox();
-		hole11.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole11.setSelectedIndex(1);
-		
-		JComboBox hole12 = new JComboBox();
-		hole12.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole12.setSelectedIndex(1);
-		
-		JComboBox hole13 = new JComboBox();
-		hole13.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole13.setSelectedIndex(1);
-		
-		JComboBox hole14 = new JComboBox();
-		hole14.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole14.setSelectedIndex(1);
-		
-		JComboBox hole15 = new JComboBox();
-		hole15.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole15.setSelectedIndex(1);
-		
-		JComboBox hole16 = new JComboBox();
-		hole16.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole16.setSelectedIndex(1);
-		
-		JComboBox hole17 = new JComboBox();
-		hole17.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
-		hole17.setSelectedIndex(1);
-		
+		List<JComboBox> holes = new ArrayList<JComboBox>(18);
+		for(int i = 0; i < 18; i++) {
+			JComboBox hole = new JComboBox();
+			hole.setModel(new DefaultComboBoxModel(new String[] {"5", "4", "3"}));
+			hole.setSelectedIndex(1);
+			holes.add(hole);
+		}
+
 		JButton btnFinalizeCourse = new JButton("Finalize Course");
 		btnFinalizeCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -105,10 +42,10 @@ public class CreateCourse extends JPanel {
 				//UI.getInstance().show(PanelNames.HOME);
 			}
 		});
-		
+
 		txtCourseName = new JTextField();
 		txtCourseName.setColumns(10);
-		
+
 		JLabel lblCourseName = new JLabel("Course Name: ");
 		
 		JLabel lblPleaseSelectHole = new JLabel("Please select hole par values:");
@@ -122,41 +59,41 @@ public class CreateCourse extends JPanel {
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 									.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(hole6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(6), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(7), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(8), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(9), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(10), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(holes.get(11), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 									.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(hole0, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(0), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(1), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(2), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(3), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(4), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(holes.get(5), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 									.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(hole12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(12), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole13, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(13), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole14, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(14), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole15, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(15), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(holes.get(16), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(hole17, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+										.addComponent(holes.get(17), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGap(13)
 									.addComponent(lblCourseName)
@@ -176,28 +113,28 @@ public class CreateCourse extends JPanel {
 					.addComponent(lblPleaseSelectHole)
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(hole0, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(holes.get(0), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(1), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(2), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(3), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(4), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(5), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(hole6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(holes.get(6), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(7), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(8), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(9), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(10), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(11), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(hole12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole13, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole14, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole15, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(hole17, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(holes.get(12), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(13), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(14), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(15), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(16), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(holes.get(17), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblCourseName)
