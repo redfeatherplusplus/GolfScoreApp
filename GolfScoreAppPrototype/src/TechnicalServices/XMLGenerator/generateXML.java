@@ -44,30 +44,30 @@ public class generateXML {
     	int HoleNumber =0;
     	
     	String RoundXML = "";
-    	RoundXML += "<Round>";
+    	RoundXML += "<Round>\n";
     	
-    	RoundXML += "<StartTime>";
+    	RoundXML += "\t<StartTime>";
     		RoundXML += round.getStartTime();
-    	RoundXML += "</StartTime>";
+    	RoundXML += "</StartTime>\n";
     	
-    	RoundXML += "<EndTime>";
+    	RoundXML += "\t<EndTime>";
     		RoundXML += round.getEndTime();
-    	RoundXML += "</EndTime>";
+    	RoundXML += "</EndTime>\n";
     	
-    	RoundXML += "<Score>";
+    	RoundXML += "\t<Score>";
     		RoundXML += round.getTotalScore();
-    	RoundXML += "</Score>";
+    	RoundXML += "</Score>\n";
     	
-    	RoundXML += "<TotalPar>";
+    	RoundXML += "\t<TotalPar>";
     		RoundXML += round.getTotalPar();
-    	RoundXML += "</TotalPar>";
+    	RoundXML += "</TotalPar>\n";
     	
     	for(Hole hole : round.getHoles())
     	{
     		HoleNumber++;
     		RoundXML += GenerateXML(hole,HoleNumber);
     	}
-    	RoundXML += "</Round>";
+    	RoundXML += "</Round>\n";
     	
     	return RoundXML;
     	
@@ -85,34 +85,34 @@ public class generateXML {
     	int ShotNumber =0;
     	
     	String HoleXML = "";
-    	HoleXML += "<Hole>";
+    	HoleXML += "\t<Hole>\n";
     	
-    	HoleXML += "<Number>";
+    	HoleXML += "\t\t<Number>";
     		HoleXML += HoleNumber;
-    	HoleXML += "</Number>";
+    	HoleXML += "</Number>\n";
     	
-    	HoleXML += "<StartTime>";
+    	HoleXML += "\t\t<StartTime>";
     		HoleXML += hole.getStartTime();
-    	HoleXML += "</StartTime>";
+    	HoleXML += "</StartTime>\n";
     	
-    	HoleXML += "<EndTime>";
+    	HoleXML += "\t\t<EndTime>";
     		HoleXML += hole.getEndTime();
-    	HoleXML += "</EndTime>";
+    	HoleXML += "</EndTime>\n";
     	
-    	HoleXML += "<Score>";
+    	HoleXML += "\t\t<Score>";
     		HoleXML += hole.getScore();
-    	HoleXML += "</Score>";
+    	HoleXML += "</Score>\n";
     	
-    	HoleXML += "<Par>";
+    	HoleXML += "\t\t<Par>";
     		HoleXML += hole.getPar();
-    	HoleXML += "</Par>";
+    	HoleXML += "</Par>\n";
     	
     	for(Shot shot : hole.getShotList())
     	{
     		ShotNumber++;
     		HoleXML += GenerateXML(shot,ShotNumber);
     	}
-    	HoleXML += "</Hole>";
+    	HoleXML += "\t</Hole>\n";
     	return HoleXML;
     }
     
@@ -127,35 +127,35 @@ public class generateXML {
     {
     	String ShotXML = "";
     	
-    	ShotXML += "<Stroke>";
+    	ShotXML += "\t\t<Stroke>\n";
     	
-    	ShotXML += "<Number>";
+    	ShotXML += "\t\t\t<Number>";
     		ShotXML += ShotNumber;
-		ShotXML += "</Number>";
+		ShotXML += "</Number>\n";
 		
-		ShotXML += "<Club>";
+		ShotXML += "\t\t\t<Club>";
 			ShotXML+= shot.getClub();
-		ShotXML += "</Club>";
+		ShotXML += "</Club>\n";
 		
-		ShotXML += "<StartLocation>";
-			ShotXML += "<Latitude>";
+		ShotXML += "\t\t\t<StartLocation>\n";
+			ShotXML += "\t\t\t\t<Latitude>";
 				ShotXML += shot.getStartLocation().getLatitude();
-			ShotXML += "</Latitude>";
-			ShotXML += "<Longitude>";
+			ShotXML += "</Latitude>\n";
+			ShotXML += "\t\t\t\t<Longitude>";
 				ShotXML += shot.getStartLocation().getLongitude();
-			ShotXML += "</Longitude>";
-		ShotXML += "</StartLocation>";
+			ShotXML += "</Longitude>\n";
+		ShotXML += "\t\t\t</StartLocation>\n";
 		
-		ShotXML += "<EndLocation>";
-			ShotXML += "<Latitude>";
+		ShotXML += "\t\t\t<EndLocation>\n";
+			ShotXML += "\t\t\t\t<Latitude>";
 				ShotXML += shot.getEndLocation().getLongitude();
-			ShotXML += "</Latitude>";
-			ShotXML += "<Longitude>";
+			ShotXML += "</Latitude>\n";
+			ShotXML += "\t\t\t\t<Longitude>";
 				ShotXML += shot.getEndLocation().getLongitude();
-			ShotXML += "</Longitude>";
-		ShotXML += "</EndLocation>";
+			ShotXML += "</Longitude>\n";
+		ShotXML += "\t\t\t</EndLocation>\n";
 		
-		ShotXML += "</Stroke>";
+		ShotXML += "\t\t</Stroke>\n";
 		
 		return ShotXML;
     }
