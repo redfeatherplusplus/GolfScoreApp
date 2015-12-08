@@ -254,14 +254,14 @@ public class Controller {
     public String GetRoundInformation(String fileName)
     {
     	String XmlInfo = "";
-    	File file =new File(fileName);
+    	File file =new File("RoundInformation/" + fileName);
         Scanner in = null;
         try 
         {
             in = new Scanner(file);
             while(in.hasNext())
             {
-                XmlInfo+=in.nextLine();
+                XmlInfo+=in.nextLine() + "\n";
             }
         } 
         catch (FileNotFoundException e) 
