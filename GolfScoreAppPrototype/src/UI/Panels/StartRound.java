@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import java.awt.CardLayout;
 
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
@@ -17,21 +18,26 @@ import javax.swing.JLabel;
 
 import Business.Controller.Controller;
 import UI.PanelNames;
-import UI.UI;
 
 public class StartRound extends JPanel {
 	
 	/**
 	 * Create the panel.
 	 */
+
+	private DefaultListModel<String> listModel = new DefaultListModel<String>();
+	private JList courseList = new JList(listModel);
 	public StartRound() {
 		
-		JList courseList = new JList();
+		for (String courseName : Controller.getInstance().listCourses()) {
+			listModel.addElement(courseName);
+		}
 		
 		JButton btnChooseCourse = new JButton("Choose Course");
 		btnChooseCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//choose course button pressed
+				Controller.getInstance().startHole();
 			}
 		});
 		

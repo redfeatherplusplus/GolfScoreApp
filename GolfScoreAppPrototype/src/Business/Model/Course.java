@@ -27,11 +27,17 @@ public class Course {
     
     protected int totalPar;		//## attribute totalPar 
     
+    protected String name;
     
     // Constructors
     
     //## auto_generated 
     public  Course() {
+    }
+    
+    //## auto_generated 
+    public  Course(String name) {
+    	this.name = name;
     }
     
     //## auto_generated 
@@ -47,6 +53,11 @@ public class Course {
     //## auto_generated 
     public int getTotalPar() {
         return totalPar;
+    }
+
+    //## auto_generated 
+    public String getName() {
+        return name;
     }
     
     //## auto_generated 

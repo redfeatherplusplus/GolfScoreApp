@@ -34,6 +34,7 @@ import TechnicalServices.GPS.*;
 public class Controller {
     
     protected List<String> clubList;		//## attribute clubList 
+    protected List<Course> courseList = new ArrayList<Course>();
     
     protected Round currentRound;		//## attribute currentRound 
     
@@ -100,9 +101,14 @@ public class Controller {
     }
     
     //## operation listCourses() 
-    public void listCourses() {
-        //#[ operation listCourses() 
-        //#]
+    public List<String> listCourses() {
+    	List<String> courseNames = new ArrayList<String>();
+    	
+    	//get name of each course and return in a list
+    	for (Course c : courseList) {
+    		courseNames.add(c.getName());
+    	}
+    	return courseNames;
     }
     
     /**
@@ -202,14 +208,18 @@ public class Controller {
     	List<String> roundsPlayed = new ArrayList<String>();
     	File[] files = new File("RoundInformation").listFiles();
     	
-    	for (File file : files) 
-    	{
-    	    if (file.isFile()) 
-    	    {
-    	    	roundsPlayed.add(file.getName());
-    	    }
+    	//check if files is empty
+    	if(files != null) {
+        	for (File file : files) 
+        	{
+        	    if (file.isFile()) 
+        	    {
+        	    	roundsPlayed.add(file.getName());
+        	    }
+        	}
     	}
     	return roundsPlayed;
+    	
     }
     
     /**
@@ -237,6 +247,38 @@ public class Controller {
             e.printStackTrace();
         }
     	return XmlInfo;
+    }
+    
+    //test method add courses
+    public void AddCourse()
+    {
+		Course c = new Course("Course_1");
+		List<Hole> holes = new ArrayList<Hole>();
+		
+		for(int i =0;i<18;i++)
+		{
+			Hole h = new Hole();
+			h.setPar(4);
+			holes.add(h);
+		}
+		
+		//add holes to this course
+		c.setHoles(holes);
+		
+		courseList.add(c);
+		c = new Course("Course_2");
+		holes = new ArrayList<Hole>();
+		
+		for(int i =0;i<18;i++)
+		{
+			Hole h = new Hole();
+			h.setPar(3);
+			holes.add(h);
+		}
+		
+		//add holes to this course
+		c.setHoles(holes);
+		courseList.add(c);
     }
     
 }

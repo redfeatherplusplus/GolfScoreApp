@@ -115,7 +115,7 @@ public class UI {
 			uploadData.setVisible(true);
 		}
 		else if (panelName.equals(PanelNames.VIEW_HISTORY)) {
-			viewHistory.refresh();
+			((ViewHistory) viewHistory).refresh();
 			viewHistory.setVisible(true);
 		}
 		else {

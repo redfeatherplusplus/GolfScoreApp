@@ -9,7 +9,6 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import Business.Controller.Controller;
 import UI.PanelNames;
-import UI.UI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
