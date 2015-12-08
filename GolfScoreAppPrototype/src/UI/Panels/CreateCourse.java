@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 
 import Business.Controller.Controller;
 import UI.PanelNames;
+import UI.UI;
 
 public class CreateCourse extends JPanel {
 	private JTextField txtCourseName;
@@ -37,9 +38,18 @@ public class CreateCourse extends JPanel {
 		JButton btnFinalizeCourse = new JButton("Finalize Course");
 		btnFinalizeCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//finalize course button pressed
-				//edit controller
-				//UI.getInstance().show(PanelNames.HOME);
+				Controller controller = Controller.getInstance();
+
+				String name = txtCourseName.getText();
+				List<Integer> pars = new ArrayList<Integer>(18);
+				for(JComboBox hole : holes) {
+					String selectedValue = (String)hole.getSelectedItem();
+					Integer par = Integer.parseInt(selectedValue);
+					pars.add(par);
+				}
+				controller.createCourse(name, pars);
+
+				UI.getInstance().show(PanelNames.HOME);
 			}
 		});
 

@@ -32,17 +32,7 @@ public class Course {
     // Constructors
     
     //## auto_generated 
-    public Course(String name, List<Integer> pars) {
-        this.name = name;
-        for(Integer par : pars) {
-            Hole hole = new Hole();
-            hole.setPar(par);
-            holes.add(hole);
-        }
-    }
-    
-    //## auto_generated 
-    public  Course(String name) {
+    public Course(String name) {
     	this.name = name;
     }
     
