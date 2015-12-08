@@ -7,6 +7,8 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 import javax.swing.JTextArea;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -59,7 +61,6 @@ public class EndRound extends JPanel {
 					.addGap(14))
 		);
 		setLayout(groupLayout);
-
 	}
 
 }

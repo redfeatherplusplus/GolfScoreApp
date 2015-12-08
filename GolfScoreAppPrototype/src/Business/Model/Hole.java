@@ -31,8 +31,6 @@ public class Hole {
     
     protected int par;		//## attribute par 
     
-    protected int shotsTaken;		//## attribute shotsTaken 
-    
     protected int score;		//## attribute score 
     
     protected long startTime;		//## attribute startTime 
@@ -46,15 +44,18 @@ public class Hole {
     // Constructors
     
     //## auto_generated 
-    public  Hole() {
+    public Hole(long time) {
+    	startTime = time;
     	shots = new ArrayList<Shot>();
     }
-    
-    //## operation calcScore() 
-    public int calcScore() {
-        //#[ operation calcScore() 
-        //#]
-    	return(0);
+
+    /**
+     * Author : Daren Cheng
+     * UseCase: EndHole
+     * Function: Calculates score for the current shot.
+     */
+    public void calcScore() {
+    	score = this.getShotsTaken() - par;
     }
     
     /**
@@ -110,11 +111,6 @@ public class Hole {
         return currentShot;
     }
     
-//    //## auto_generated 
-//    public void setCurrentShot(Shot p_currentShot) {
-//        currentShot = p_currentShot;
-//    }
-    
     //## auto_generated 
     public int getPar() {
         return par;
@@ -167,12 +163,8 @@ public class Hole {
     
     //## auto_generated 
     public long getDuration() {
+    	duration = endTime - startTime;
         return duration;
-    }
-    
-    //## auto_generated 
-    public void setDuration(long p_duration) {
-        duration = p_duration;
     }
     
     public List<Shot> getShotList()

@@ -69,14 +69,23 @@ public class Round {
     	{
     		totalScore += (hole.par * hole.score);
     		totalPar += hole.par;
-    		totalShotsTaken+= hole.shotsTaken;
+    		totalShotsTaken+= hole.getShotsTaken();
     	}
     }
     
     //## operation endCurrentHole() 
-    public void endCurrentHole() {
-        //#[ operation endCurrentHole() 
-        //#]
+    public String endCurrentHole(long time) {
+    	currentHole.setEndTime(time);
+    	currentHole.calcScore();
+    	
+    	String holeInfo = 	"Hole Info " + "\n" + 
+    						"Start Time: " + currentHole.getStartTime() + "\n" +
+    						"End Time: " + currentHole.getEndTime() + "\n" +
+    						"Duration: " + currentHole.getDuration() + "\n" +
+    						"Par: " + currentHole.getPar()+ "\n"+
+    						"Shots Taken: " + currentHole.getShotsTaken()+ "\n"+
+    						"Score: " + currentHole.getScore()+ "\n";
+    	return holeInfo;
     }
     
     /**

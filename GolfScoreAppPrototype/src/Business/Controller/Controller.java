@@ -86,7 +86,7 @@ public class Controller {
         Course course = new Course(name);
         List<Hole> holes = new ArrayList<Hole>(18);
         for(Integer par : pars) {
-            Hole hole = new Hole();
+            Hole hole = new Hole(clockInstance.getTime());
             hole.setPar(par);
             holes.add(hole);
         }
@@ -96,8 +96,8 @@ public class Controller {
     }
 
     //## operation endHole() 
-    public void endHole() {
-    	
+    public String endHole() {
+    	return(currentRound.endCurrentHole(clockInstance.getTime()));
     }
     
      /**

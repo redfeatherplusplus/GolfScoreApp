@@ -32,9 +32,6 @@ public class StartRound extends JPanel {
 	private JList courseList = new JList(listModel);
 	public StartRound() {
 
-		//call test initializaiton method
-		Controller.getInstance().AddCourse();
-
 		for (String courseName : Controller.getInstance().listCourses()) {
 			listModel.addElement(courseName);
 		}
