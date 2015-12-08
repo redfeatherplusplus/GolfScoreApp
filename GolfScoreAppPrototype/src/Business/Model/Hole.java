@@ -93,10 +93,10 @@ public class Hole {
         	shots.add(currentShot);
 
             String shotInfo = String.format(
-                    "Shot: %d%nClub: %s%nStart Location: (%3.4f, %3.4f)%nEnd Location: (%3.4f, %3.4f)%nDistance: %3.2f meters",
+                    "Shot: %d%nClub: %s%nStart Location: (%f, %f)%nEnd Location: (%f, %f)%nDistance: %3.2f meters",
                     getShotsTaken(), currentShot.getClub(),
                     currentShot.getStartLocation().getLatitude(), currentShot.getStartLocation().getLongitude(),
-                    currentShot.getEndLocation().getLatitude(), currentShot.getStartLocation().getLongitude(),
+                    currentShot.getEndLocation().getLatitude(), currentShot.getEndLocation().getLongitude(),
                     currentShot.getDistance()
             );
         	
