@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 
 import Business.Controller.Controller;
 import UI.PanelNames;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UploadData extends JPanel {
 	
@@ -18,37 +20,35 @@ public class UploadData extends JPanel {
 	 */
 	public UploadData() {
 		
-		JList roundList = new JList();
+		JButton btnUploadRound = new JButton("Upload");
+		btnUploadRound.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controller.getInstance().uploadRoundInformation();
+			}
+		});
 		
-		JButton btnUploadRound = new JButton("Upload Round");
-		
-		JLabel lblPleaseChooseA = new JLabel("Please choose a round to upload:");
+		JLabel lblPleaseChooseA = new JLabel("Upload XML Data:");
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(176)
+							.addGap(181)
 							.addComponent(btnUploadRound))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(roundList, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(145)
+							.addGap(170)
 							.addComponent(lblPleaseChooseA)))
-					.addContainerGap())
+					.addContainerGap(169, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addGap(18)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+					.addGap(104)
 					.addComponent(lblPleaseChooseA)
-					.addGap(11)
-					.addComponent(roundList, GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGap(18)
 					.addComponent(btnUploadRound)
-					.addContainerGap())
+					.addContainerGap(133, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 

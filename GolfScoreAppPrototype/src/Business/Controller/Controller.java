@@ -12,12 +12,18 @@ package Business.Controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 //## attribute currentRound 
 import java.util.*;
+import java.util.stream.Collectors;
+
 import Business.Model.*;
 import Business.Location;
 
 import TechnicalServices.Clock.ClockAdapter;
+import TechnicalServices.ExternalStorage.DatabaseController;
 import TechnicalServices.LocalStorage.LocalStorageAdapter;
 import TechnicalServices.GPS.*;
 
@@ -272,7 +278,7 @@ public class Controller {
     public String GetRoundInformation(String fileName)
     {
     	String XmlInfo = "";
-    	File file =new File("RoundInformation/" + fileName);
+    	File file = new File("RoundInformation/" + fileName);
         Scanner in = null;
         try 
         {
@@ -307,6 +313,22 @@ public class Controller {
         createCourse("All Par 4", par4);
         createCourse("FooBar Back Nine", shortPars);
         createCourse("Two-hole Test", tinyTest);
+    }
+    
+    public void uploadRoundInformation(){
+    	DatabaseController dbController = new DatabaseController();
+    	
+    	File fileDirectory = new File("RoundInformation");
+    	File[] files = fileDirectory.listFiles();
+    	
+    	for (File file : files){
+    		try {
+    			dbController.writeToDatabase(file.getName(), Files.lines(Paths.get(file.getAbsolutePath())).collect(Collectors.joining()));
+    		}
+    		catch (Exception e) {
+    			
+    		}
+    	}
     }
     
 }
