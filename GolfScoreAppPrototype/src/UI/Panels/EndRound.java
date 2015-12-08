@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 
 import Business.Controller.Controller;
 import UI.PanelNames;
+import UI.UI;
 
 public class EndRound extends JPanel {
 	
@@ -27,7 +28,7 @@ public class EndRound extends JPanel {
 		JButton btnDoneViewing = new JButton("Done Viewing");
 		btnDoneViewing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//done viewing switch to end shot if it's time to
+				UI.getInstance().show(PanelNames.HOME);
 			}
 		});
 		
