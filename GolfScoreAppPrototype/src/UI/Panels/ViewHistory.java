@@ -21,6 +21,7 @@ import javax.swing.JTextArea;
 import Business.Controller.Controller;
 import UI.PanelNames;
 import UI.UI;
+import javax.swing.JScrollPane;
 
 public class ViewHistory extends JPanel {
 	
@@ -33,6 +34,8 @@ public class ViewHistory extends JPanel {
 	private JList courseList = new JList(courseListModel);
 	
 	public ViewHistory() {
+		JTextArea courseInfoArea = new JTextArea();
+
 		setLayout(new CardLayout(0, 0));
 		
 		JPanel ViewCourses = new JPanel();
@@ -40,8 +43,6 @@ public class ViewHistory extends JPanel {
 		
 		JPanel ViewCourse = new JPanel();
 		add(ViewCourse, "name_31781453234841");
-		
-		JTextArea courseInfoArea = new JTextArea();
 		
 		JButton btnPickCourse = new JButton("Pick Course");
 		btnPickCourse.addActionListener(new ActionListener() {
@@ -59,6 +60,8 @@ public class ViewHistory extends JPanel {
 		});
 		
 		JLabel lblPleaseChooseA = new JLabel("Please choose a course to view:");
+		
+		JScrollPane scrollPane = new JScrollPane();
 		GroupLayout gl_ViewCourses = new GroupLayout(ViewCourses);
 		gl_ViewCourses.setHorizontalGroup(
 			gl_ViewCourses.createParallelGroup(Alignment.LEADING)
@@ -68,24 +71,26 @@ public class ViewHistory extends JPanel {
 							.addGap(182)
 							.addComponent(btnPickCourse))
 						.addGroup(gl_ViewCourses.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(courseList, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
-						.addGroup(gl_ViewCourses.createSequentialGroup()
 							.addGap(148)
 							.addComponent(lblPleaseChooseA)))
-					.addContainerGap())
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_ViewCourses.createSequentialGroup()
+					.addContainerGap(15, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 356, GroupLayout.PREFERRED_SIZE)
+					.addGap(79))
 		);
 		gl_ViewCourses.setVerticalGroup(
 			gl_ViewCourses.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_ViewCourses.createSequentialGroup()
 					.addGap(18)
 					.addComponent(lblPleaseChooseA)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(courseList, GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-					.addGap(11)
+					.addGap(18)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+					.addGap(28)
 					.addComponent(btnPickCourse)
 					.addContainerGap())
 		);
+		scrollPane.setViewportView(courseList);
 		ViewCourses.setLayout(gl_ViewCourses);
 		
 		JButton btnDoneViewing = new JButton("Done Viewing");
@@ -98,33 +103,37 @@ public class ViewHistory extends JPanel {
 		
 		JLabel lblCourseInformation = new JLabel("Course Information:");
 		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		
 		GroupLayout gl_ViewCourse = new GroupLayout(ViewCourse);
 		gl_ViewCourse.setHorizontalGroup(
-			gl_ViewCourse.createParallelGroup(Alignment.LEADING)
+			gl_ViewCourse.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_ViewCourse.createSequentialGroup()
 					.addGroup(gl_ViewCourse.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_ViewCourse.createSequentialGroup()
-							.addGap(177)
+							.addGap(162)
+							.addComponent(lblCourseInformation))
+						.addGroup(gl_ViewCourse.createSequentialGroup()
+							.addGap(160)
 							.addComponent(btnDoneViewing))
 						.addGroup(gl_ViewCourse.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(courseInfoArea, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
-						.addGroup(gl_ViewCourse.createSequentialGroup()
-							.addGap(177)
-							.addComponent(lblCourseInformation)))
-					.addContainerGap())
+							.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 438, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_ViewCourse.setVerticalGroup(
 			gl_ViewCourse.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_ViewCourse.createSequentialGroup()
-					.addGap(18)
+					.addContainerGap()
 					.addComponent(lblCourseInformation)
-					.addGap(11)
-					.addComponent(courseInfoArea, GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnDoneViewing)
 					.addContainerGap())
 		);
+		
+		scrollPane_1.setViewportView(courseInfoArea);
 		ViewCourse.setLayout(gl_ViewCourse);
 
 	}

@@ -24,6 +24,7 @@ public class UploadData extends JPanel {
 		btnUploadRound.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controller.getInstance().uploadRoundInformation();
+				UI.UI.getInstance().show(PanelNames.HOME);
 			}
 		});
 		
