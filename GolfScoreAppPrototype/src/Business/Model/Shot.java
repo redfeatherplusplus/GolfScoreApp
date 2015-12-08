@@ -47,13 +47,6 @@ public class Shot {
     public  Shot() {
     }
     
-    //## operation calculateDistance() 
-    public double calculateDistance() {
-        //#[ operation calculateDistance() 
-        //#]
-    	return 0.0;
-    }
-    
     //## auto_generated 
     public String getClub() {
         return club;
@@ -65,19 +58,17 @@ public class Shot {
     }
     
     //## auto_generated 
-    public double getDistance() {
+    public double calculateDistance() {
     	if (startLocation == null || endLocation == null){
     		return 0;
     	}
-    	if (distance == null){
-    		distance = calculateDistance(
-            		startLocation.getLatitude(),
-            		endLocation.getLatitude(),
-            		startLocation.getLongitude(),
-            		endLocation.getLongitude(),
-            		0,
-            		0);
-    	}
+		distance = calculateDistance(
+        		startLocation.getLatitude(),
+        		endLocation.getLatitude(),
+        		startLocation.getLongitude(),
+        		endLocation.getLongitude(),
+        		0,
+        		0);
         return distance;
     }
     

@@ -97,7 +97,7 @@ public class Hole {
                     getShotsTaken(), currentShot.getClub(),
                     currentShot.getStartLocation().getLatitude(), currentShot.getStartLocation().getLongitude(),
                     currentShot.getEndLocation().getLatitude(), currentShot.getEndLocation().getLongitude(),
-                    currentShot.getDistance()
+                    currentShot.calculateDistance()
             );
         	
         	currentShot = null;
