@@ -64,7 +64,7 @@ public class LocalStorageAdapter
     public void saveRound(final Round round) 
     {
     	String RoundXML = XMLGenerator.GenerateXML(round);
-    	String FileName = "RoundPlayed_"+ClockAdapter.getInstance().getTime()+".xml";
+    	String FileName = "RoundInformation/RoundPlayed_"+ClockAdapter.getInstance().getTime()+".xml";
     	File saveFile = new File(FileName);
     	FileWriter fw = null;
     	BufferedWriter bw =null;
