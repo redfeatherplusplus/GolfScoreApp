@@ -1,6 +1,7 @@
 package UI.Panels;
 
 import javax.swing.JPanel;
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
@@ -23,10 +24,13 @@ import UI.UI;
 
 public class ViewHistory extends JPanel {
 	
+	private DefaultListModel courseListModel = new DefaultListModel<String>();
+	private Controller controller = Controller.getInstance();
+	
 	/**
 	 * Create the panel.
 	 */
-	private JList courseList = new JList(Controller.getInstance().GetRoundPlayed().toArray());
+	private JList courseList = new JList(courseListModel);
 	
 	public ViewHistory() {
 		setLayout(new CardLayout(0, 0));
@@ -126,7 +130,10 @@ public class ViewHistory extends JPanel {
 	}
 	
 	public void refresh() {
-		courseList = new JList(Controller.getInstance().GetRoundPlayed().toArray());
+		courseListModel.clear();
+		for (String round : controller.GetRoundPlayed()){
+			courseListModel.addElement(round);
+		}
 	}
 }
 
