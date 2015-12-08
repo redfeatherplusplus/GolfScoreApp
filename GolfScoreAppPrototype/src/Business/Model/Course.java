@@ -48,7 +48,7 @@ public class Course {
     
     //## auto_generated 
     public List<Hole> getHoles() {
-        return null;
+        return holes;
     }
     
     //## auto_generated 
