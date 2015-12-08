@@ -61,6 +61,34 @@ public class EndRound extends JPanel {
 					.addGap(14))
 		);
 		setLayout(groupLayout);
-	}
 
+		//add component listener for refreshing
+		this.addComponentListener(new ComponentListener(){
+
+			@Override
+			public void componentResized(ComponentEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void componentShown(ComponentEvent e) {
+				//refresh the text area
+				roundInfoArea.setText(Controller.getInstance().endRound());
+			}
+
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+	}
 }

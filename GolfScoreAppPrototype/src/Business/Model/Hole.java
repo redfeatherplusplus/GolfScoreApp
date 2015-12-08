@@ -137,20 +137,10 @@ public class Hole {
     }
     
     //## auto_generated 
-    public void setScore(int p_score) {
-        score = p_score;
-    }
-    
-    //## auto_generated 
     public long getStartTime() {
         return startTime;
     }
-    
-    //## auto_generated 
-    public void setStartTime(long p_startTime) {
-        startTime = p_startTime;
-    }
-    
+
     //## auto_generated 
     public long getEndTime() {
         return endTime;

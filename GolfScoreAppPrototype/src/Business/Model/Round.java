@@ -27,11 +27,11 @@ public class Round {
     
     protected Hole currentHole;		//## attribute currentHole 
     
-    protected double startTime;		//## attribute startTime 
+    protected long startTime;		//## attribute startTime
     
-    protected double endTime;		//## attribute endTime 
+    protected long endTime;		//## attribute endTime
     
-    protected double totalDuration;		//## attribute totalDuration 
+    protected long totalDuration;		//## attribute totalDuration
     
     protected int totalPar;		//## attribute totalPar 
     
@@ -39,8 +39,8 @@ public class Round {
     
     protected int currentHoleNumber;
     
-    protected int totalScore;		//## attribute totalScore 
-    
+    protected int totalScore;		//## attribute totalScore
+
     
     /**
      * Author: Karthikeyan Selvaraj
@@ -48,7 +48,7 @@ public class Round {
      * Function : Initializes the Hole list in the round to the holes in the course to 
      * initialize all the par values and other holes information to the holes in the round 
      */
-    public  Round(Course course) 
+    public  Round(Course course)
     {
     	totalScore =0;
     	totalPar =0;
@@ -60,7 +60,17 @@ public class Round {
     		this.holes.add(hole);
     	}
     }
-    
+
+    public String getInformation() {
+        return  "Number of Holes: " + getNumHoles() + "\n" +
+                "Start Time: " + getStartTime() + "\n" +
+                "End Time:" + getEndTime() + "\n" +
+                "Total Duration: " + getTotalDuration() + "\n" +
+                "Total Par: " + getTotalPar() + "\n" +
+                "Total Shots Taken: " + getTotalShotsTaken() + "\n" +
+                "Total Score: " + getTotalScore();
+    }
+
     /**
      * Author: Karthikeyan Selvaraj
      * @return totalScore Calculated
@@ -70,9 +80,9 @@ public class Round {
     {
     	for(Hole hole : holes)
     	{
-    		totalScore += (hole.par * hole.score);
-    		totalPar += hole.par;
-    		totalShotsTaken+= hole.getShotsTaken();
+    		totalPar += hole.getPar();
+    		totalShotsTaken += hole.getShotsTaken();
+            totalScore += hole.getScore();
     	}
     }
     
@@ -99,18 +109,13 @@ public class Round {
     public Hole startNewHole(long time) {
         //#[ operation startNewHole(long) 
         //#]
-    	currentHole = holes.get(0);
+    	currentHole = holes.get(getCurrentHoleNumber());
     	return currentHole; // null
     }
     
     //## auto_generated 
     public List<Hole> getHoles() {
         return holes;
-    }
-    
-    //## auto_generated 
-    public void setHoles(List<Hole> p_holes) {
-        holes = p_holes;
     }
     
     //## auto_generated 
@@ -129,48 +134,34 @@ public class Round {
     }
     
     //## auto_generated 
-    public void setCurrentHole(Hole p_currentHole) {
-        currentHole = p_currentHole;
-    }
-    
-    //## auto_generated 
-    public double getStartTime() {
+    public long getStartTime() {
         return startTime;
     }
     
     //## auto_generated 
-    public void setStartTime(double p_startTime) {
+    public void setStartTime(long p_startTime) {
         startTime = p_startTime;
     }
     
     //## auto_generated 
-    public double getEndTime() {
+    public long getEndTime() {
         return endTime;
     }
     
     //## auto_generated 
-    public void setEndTime(double p_endTime) {
+    public void setEndTime(long p_endTime) {
         endTime = p_endTime;
     }
     
     //## auto_generated 
-    public double getTotalDuration() {
+    public long getTotalDuration() {
+        totalDuration = endTime - startTime;
         return totalDuration;
     }
-    
-    //## auto_generated 
-    public void setTotalDuration(double p_totalDuration) {
-        totalDuration = p_totalDuration;
-    }
-    
+
     //## auto_generated 
     public int getTotalPar() {
         return totalPar;
-    }
-    
-    //## auto_generated 
-    public void setTotalPar(int p_totalPar) {
-        totalPar = p_totalPar;
     }
     
     //## auto_generated 
@@ -179,18 +170,8 @@ public class Round {
     }
     
     //## auto_generated 
-    public void setTotalShotsTaken(int p_totalShotsTaken) {
-        totalShotsTaken = p_totalShotsTaken;
-    }
-    
-    //## auto_generated 
     public int getTotalScore() {
         return totalScore;
-    }
-    
-    //## auto_generated 
-    public void setTotalScore(int p_totalScore) {
-        totalScore = p_totalScore;
     }
     
 }

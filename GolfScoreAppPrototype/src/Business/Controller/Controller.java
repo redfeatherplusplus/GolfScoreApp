@@ -123,11 +123,12 @@ public class Controller {
       * Function : Sets the endtime for the round and Calculates the total score for the round and save 
       * it to the local storage as an XML string in the file named "RoundPlayer_<Timestamp>"
       */
-    public void endRound() 
+    public String endRound()
     {
     	currentRound.setEndTime(clockInstance.getTime());
     	currentRound.calcScore();
     	storageAdapter.saveRound(currentRound);
+        return currentRound.getInformation();
     }
     
     //## operation listCourses() 
@@ -193,7 +194,7 @@ public class Controller {
     
     /**
      * Author: Karthikeyan Selvaraj
-     * @param course : Course Information on which the round is played
+     * @param courseName : Course Information on which the round is played
      * UseCase : StartRound
      * Function : Starts the round instance with the course selected
      */

@@ -112,11 +112,6 @@ public class Shot {
     }
     
     //## auto_generated 
-    public void setDistance(double p_distance) {
-        distance = p_distance;
-    }
-    
-    //## auto_generated 
     public Location getEndLocation() {
         return endLocation;
     }
