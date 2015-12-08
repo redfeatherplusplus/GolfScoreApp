@@ -70,6 +70,7 @@ public class Controller {
     	clubList.add("Pitching Wedge");
     	clubList.add("Putter");
 
+        addSampleCourses();
     }
     
     /**
@@ -80,7 +81,20 @@ public class Controller {
     {
     	return(INSTANCE);
     }
-    
+
+    public void createCourse(String name, List<Integer> pars) {
+        Course course = new Course(name);
+        List<Hole> holes = new ArrayList<Hole>(18);
+        for(Integer par : pars) {
+            Hole hole = new Hole();
+            hole.setPar(par);
+            holes.add(hole);
+        }
+        course.setHoles(holes);
+
+        courseList.add(course);
+    }
+
     //## operation endHole() 
     public void endHole() {
         //#[ operation endHole() 
@@ -249,36 +263,20 @@ public class Controller {
     	return XmlInfo;
     }
     
-    //test method add courses
-    public void AddCourse()
+    // create sample courses
+    public void addSampleCourses()
     {
-		Course c = new Course("Course_1");
-		List<Hole> holes = new ArrayList<Hole>();
-		
-		for(int i =0;i<18;i++)
-		{
-			Hole h = new Hole();
-			h.setPar(4);
-			holes.add(h);
-		}
-		
-		//add holes to this course
-		c.setHoles(holes);
-		
-		courseList.add(c);
-		c = new Course("Course_2");
-		holes = new ArrayList<Hole>();
-		
-		for(int i =0;i<18;i++)
-		{
-			Hole h = new Hole();
-			h.setPar(3);
-			holes.add(h);
-		}
-		
-		//add holes to this course
-		c.setHoles(holes);
-		courseList.add(c);
+        // the joys of unboxing
+        Integer[] sampleParArray = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 5, 5, 5};
+        List<Integer> samplePars = Arrays.asList(sampleParArray);
+        Integer[] par4Array      = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
+        List<Integer> par4       = Arrays.asList(par4Array);
+        Integer[] shortParArray  = {3, 3, 4, 4, 4, 4, 4, 5, 5};
+        List<Integer> shortPars  = Arrays.asList(shortParArray);
+
+        createCourse("Sample Course", samplePars);
+        createCourse("All Par 4", par4);
+        createCourse("FooBar Back Nine", shortPars);
     }
     
 }
