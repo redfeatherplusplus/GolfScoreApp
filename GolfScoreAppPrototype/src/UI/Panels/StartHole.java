@@ -9,6 +9,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import Business.Controller.Controller;
 import UI.PanelNames;
+import UI.UI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -26,6 +27,10 @@ public class StartHole extends JPanel {
 		btnStartHole.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//start hole button pressed
+				Controller.getInstance().startHole();
+				
+				//show start shot UI
+				UI.getInstance().show(PanelNames.START_SHOT);
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(this);

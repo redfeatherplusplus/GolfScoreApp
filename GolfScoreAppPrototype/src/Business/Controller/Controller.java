@@ -83,8 +83,7 @@ public class Controller {
     
     //## operation endHole() 
     public void endHole() {
-        //#[ operation endHole() 
-        //#]
+    	
     }
     
      /**
@@ -158,8 +157,7 @@ public class Controller {
     
     //## operation startHole() 
     public void startHole() {
-        //#[ operation startHole() 
-        //#]
+    	currentRound.startNewHole(clockInstance.getTime());
     }
     
     /**
@@ -168,11 +166,22 @@ public class Controller {
      * UseCase : StartRound
      * Function : Starts the round instance with the course selected
      */
-    public void startRound(final Course course) 
+    public void startRound(String courseName)
     {
-       Round round = new Round(course);
-       currentRound = round;
-       round.setStartTime(clockInstance.getTime());
+        Round round = new Round(getCourse(courseName));
+        currentRound = round;
+        round.setStartTime(clockInstance.getTime());
+    }
+	
+	private Course getCourse(String courseName) 
+    {
+		Course retCourse = null;
+		for(Course course : courseList) {
+			if (course.getName().equals(courseName)) {
+				retCourse = course;
+			}
+		}
+		return(retCourse);
     }
     
     //## auto_generated 

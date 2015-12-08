@@ -91,7 +91,7 @@ public class EndShot extends JPanel {
 				
 				// End Hole
 				if (chckbxEndHole.isSelected()){
-					//controller.endHole(); // Should 
+					controller.endHole(); 
 					UI.getInstance().show(PanelNames.END_HOLE);
 				}
 				// Continue Hole

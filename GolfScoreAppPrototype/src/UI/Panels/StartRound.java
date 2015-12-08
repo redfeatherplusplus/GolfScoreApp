@@ -13,11 +13,14 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 import javax.swing.JLabel;
 
 import Business.Controller.Controller;
 import UI.PanelNames;
+import UI.UI;
 
 public class StartRound extends JPanel {
 	
@@ -28,7 +31,10 @@ public class StartRound extends JPanel {
 	private DefaultListModel<String> listModel = new DefaultListModel<String>();
 	private JList courseList = new JList(listModel);
 	public StartRound() {
-		
+
+		//call test initializaiton method
+		Controller.getInstance().AddCourse();
+
 		for (String courseName : Controller.getInstance().listCourses()) {
 			listModel.addElement(courseName);
 		}
@@ -37,7 +43,10 @@ public class StartRound extends JPanel {
 		btnChooseCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//choose course button pressed
-				Controller.getInstance().startHole();
+				Controller.getInstance().startRound(courseList.getSelectedValue().toString());
+				
+				//show start hole UI
+				UI.getInstance().show(PanelNames.START_HOLE);
 			}
 		});
 		
@@ -70,7 +79,38 @@ public class StartRound extends JPanel {
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
+		
+		//add component listener for refreshing
+		this.addComponentListener(new ComponentListener(){
 
+			@Override
+			public void componentResized(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void componentShown(ComponentEvent e) {
+				//refresh the listmodel
+				listModel.clear();
+				for (String courseName : Controller.getInstance().listCourses()) {
+					listModel.addElement(courseName);
+				}
+			}
+
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 	}
 
 }
