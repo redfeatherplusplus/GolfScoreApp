@@ -62,13 +62,10 @@ public class Round {
     }
 
     public String getInformation() {
-        return  "Number of Holes: " + getNumHoles() + "\n" +
-                "Start Time: " + getStartTime() + "\n" +
-                "End Time:" + getEndTime() + "\n" +
-                "Total Duration: " + getTotalDuration() + "\n" +
-                "Total Par: " + getTotalPar() + "\n" +
-                "Total Shots Taken: " + getTotalShotsTaken() + "\n" +
-                "Total Score: " + getTotalScore();
+        return  String.format(
+                "Number of Holes: %d%nStart Time: %tr%nEnd Time: %tr%nTotal Duration: %ts seconds%nTotal Par: %d%nTotal Shots Taken: %d%nTotal Score: %d%n",
+                getNumHoles(), getStartTime(), getEndTime(), getTotalDuration(), getTotalPar(), getTotalShotsTaken(), getTotalScore()
+        );
     }
 
     /**
@@ -91,14 +88,13 @@ public class Round {
     	currentHole.setEndTime(time);
     	currentHole.calcScore();
     	currentHoleNumber++;
-    	
-    	String holeInfo = 	"Current Hole: " + currentHoleNumber + "\n" + 
-    						"Start Time: " + currentHole.getStartTime() + "\n" +
-    						"End Time: " + currentHole.getEndTime() + "\n" +
-    						"Duration: " + currentHole.getDuration() + "\n" +
-    						"Par: " + currentHole.getPar()+ "\n"+
-    						"Shots Taken: " + currentHole.getShotsTaken()+ "\n"+
-    						"Score: " + currentHole.getScore()+ "\n";
+
+        String holeInfo = String.format(
+                "Current Hole: %d%nStart Time: %tr%nEnd Time: %tr%nDuration: %ts seconds%nPar: %d%nShots Taken: %d%nScore: %d%n",
+                currentHoleNumber, currentHole.getStartTime(), currentHole.getEndTime(), currentHole.getDuration(),
+                currentHole.getPar(), currentHole.getShotsTaken(), currentHole.getScore()
+        );
+
     	return holeInfo;
     }
     
