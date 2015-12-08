@@ -37,6 +37,8 @@ public class Round {
     
     protected int totalShotsTaken;		//## attribute totalShotsTaken 
     
+    protected int currentHoleNumber;
+    
     protected int totalScore;		//## attribute totalScore 
     
     
@@ -51,6 +53,7 @@ public class Round {
     	totalScore =0;
     	totalPar =0;
     	totalShotsTaken =0;
+    	currentHoleNumber =0;
     	holes = new ArrayList<Hole>();
     	for(Hole hole : course.holes)
     	{
@@ -77,8 +80,9 @@ public class Round {
     public String endCurrentHole(long time) {
     	currentHole.setEndTime(time);
     	currentHole.calcScore();
+    	currentHoleNumber++;
     	
-    	String holeInfo = 	"Hole Info " + "\n" + 
+    	String holeInfo = 	"Current Hole: " + currentHoleNumber + "\n" + 
     						"Start Time: " + currentHole.getStartTime() + "\n" +
     						"End Time: " + currentHole.getEndTime() + "\n" +
     						"Duration: " + currentHole.getDuration() + "\n" +
@@ -112,6 +116,16 @@ public class Round {
     //## auto_generated 
     public Hole getCurrentHole() {
         return currentHole;
+    }
+    
+    //## auto_generated 
+    public int getCurrentHoleNumber() {
+        return currentHoleNumber;
+    }
+    
+    //## auto_generated 
+    public int getNumHoles() {
+        return holes.size();
     }
     
     //## auto_generated 

@@ -94,7 +94,24 @@ public class Controller {
 
         courseList.add(course);
     }
+    
+    /**
+     * Author: Daren Cheng
+     * Function : Returns current hole on by index
+     */
+    public int getCurrentHoleNumber() 
+    {
+    	return(currentRound.getCurrentHoleNumber());
+    }
 
+    /**
+     * Author: Daren Cheng
+     * Function : Returns total number of holes
+     */
+    public int getNumHoles() {
+        return currentRound.getNumHoles();
+    }
+    
     //## operation endHole() 
     public String endHole() {
     	return(currentRound.endCurrentHole(clockInstance.getTime()));
@@ -282,10 +299,13 @@ public class Controller {
         List<Integer> par4       = Arrays.asList(par4Array);
         Integer[] shortParArray  = {3, 3, 4, 4, 4, 4, 4, 5, 5};
         List<Integer> shortPars  = Arrays.asList(shortParArray);
+        Integer[] tinyTestArray  = {4, 4};
+        List<Integer> tinyTest   = Arrays.asList(tinyTestArray);
 
         createCourse("Sample Course", samplePars);
         createCourse("All Par 4", par4);
         createCourse("FooBar Back Nine", shortPars);
+        createCourse("Two-hole Test", tinyTest);
     }
     
 }

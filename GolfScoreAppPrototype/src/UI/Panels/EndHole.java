@@ -33,6 +33,16 @@ public class EndHole extends JPanel {
 		btnDoneViewing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//done viewing button pressed
+				
+				//check if all holes have been played on
+				if (Controller.getInstance().getCurrentHoleNumber() == Controller.getInstance().getNumHoles()) {
+					//all holes have been played on, show end round
+					UI.getInstance().show(PanelNames.END_ROUND);
+				}
+				else {
+					//holes still exist
+					UI.getInstance().show(PanelNames.START_HOLE);
+				}
 			}
 		});
 		

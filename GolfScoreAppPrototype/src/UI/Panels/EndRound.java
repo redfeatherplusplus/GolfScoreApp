@@ -27,7 +27,7 @@ public class EndRound extends JPanel {
 		JButton btnDoneViewing = new JButton("Done Viewing");
 		btnDoneViewing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//done viewing
+				//done viewing switch to end shot if it's time to
 			}
 		});
 		
